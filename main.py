@@ -31,7 +31,7 @@ def leer_formulario(peticion:Request):
 def enviar_categoria(peticion:Request, categoria:str=Form(...)):
     try:
         if categoria == '-':
-            return f'Seleccione una categoria'
+            return templates.TemplateResponse('index.html',{'request':peticion, 'cita_devuelta':'Seleccione una categoría válida'})
         elif categoria not in df['categoria'].values:
             return f'La categoria {categoria} no existe'
         df_filtrado = df[df['categoria'] == categoria]
