@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de comentarios</title>
+    <title>Generador de citas</title>
 </head>
 <body>
-    <ul>
-        {% for comentario in lista_comentarios_usuarios %}
-        <li>{{comentario}}</li>
-        {% endfor %}
-    </ul>
-    <h2>Teclea un comentario</h2>
-    <form action="/enviar_comentario" method="post">
-        <input type="text" name="comentario">
-        <input type="submit" name="Enviar" value="Enviar">
-
+    <h2>Selecione una categoria de cita</h2>
+    <form action="/enviar_categoria" method="post">
+        <li>
+            <select name="categoria">
+                <option value="-">-</option>
+                <option value="amor">Amor</option>
+                <option value="amistad">Amistad</option>
+                <option value="motivacion">Motivación</option>
+                <option value="vida">Vida</option>
+            </select>
+        </li>
+        <input type="submit">
     </form>
-    <form action="/resetear" method="post">
-        <input type="submit"  value="Resetear">
-
-    </form>
-    
+    <p>{{cita_devuelta}}</p>
 </body>
 </html>

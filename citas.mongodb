@@ -45,23 +45,23 @@ db.citas.insertMany(
         },
         {
             cita:'El éxito es la suma de pequeños esfuerzos repetidos día tras día.',
-            categoria: 'motivación'
+            categoria: 'motivacion'
         },
         {
             cita:'El éxito no es la clave de la felicidad. La felicidad es la clave del éxito.',
-            categoria: 'motivación'
+            categoria: 'motivacion'
         },
         {
             cita:'El éxito es la capacidad de ir de fracaso en fracaso sin perder el entusiasmo.',
-            categoria: 'motivación'
+            categoria: 'motivacion'
         },
         {
             cita:'El éxito es no definitivo, el fracaso no es fatal. Lo que cuenta es el coraje para continuar.',
-            categoria: 'motivación'
+            categoria: 'motivacion'
         },
         {
             cita:'El éxito es la realización progresiva de un ideal digno.',
-            categoria: 'motivación'
+            categoria: 'motivacion'
         },
         {
             cita:'La vida es lo que hacemos de ella. Los viajes son los viajeros. Lo que vemos no es lo que vemos, sino lo que somos.',
