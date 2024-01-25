@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de comentarios</title>
+</head>
+<body>
+    <ul>
+        {% for comentario in lista_comentarios_usuarios %}
+        <li>{{comentario}}</li>
+        {% endfor %}
+    </ul>
+    <h2>Teclea un comentario</h2>
+    <form action="/enviar_comentario" method="post">
+        <input type="text" name="comentario">
+        <input type="submit" name="Enviar" value="Enviar">
+
+    </form>
+    <form action="/resetear" method="post">
+        <input type="submit"  value="Resetear">
+
+    </form>
+    
+</body>
+</html>

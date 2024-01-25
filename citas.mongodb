@@ -1,0 +1,92 @@
+use('citas')
+
+db.products.drop()
+db.citas.insertMany(
+    [
+        {
+            cita:'El amor no consiste en mirarse el uno al otro, sino en mirar juntos en la misma dirección.',
+            categoria: 'amor'
+        },
+        {
+            cita:'El amor es la única fuerza capaz de transformar un enemigo en amigo.',
+            categoria: 'amor'
+        },
+        {
+            cita:'El amor es la belleza de la vida.',
+            categoria: 'amor'
+        },
+        {
+            cita:'El amor es la respuesta a todo.',
+            categoria: 'amor'
+        },
+        {
+            cita:'El amor es la clave que abre las puertas de la felicidad.',
+            categoria: 'amor'
+        },
+        {
+            cita:'La amistad duplica las alegrías y divide las angustias por la mitad.',
+            categoria: 'amistad'
+        },
+        {
+            cita:'La amistad es un alma que habita en dos cuerpos.',
+            categoria: 'amistad'
+        },
+        {
+            cita:'La amistad es un tesoro que se aprecia cada vez más con el tiempo.',
+            categoria: 'amistad'
+        },
+        {
+            cita:'La amistad es el ingrediente más importante en la receta de la vida.',
+            categoria: 'amistad'
+        },
+        {
+            cita:'La amistad es la música de la vida.',
+            categoria: 'amistad'
+        },
+        {
+            cita:'El éxito es la suma de pequeños esfuerzos repetidos día tras día.',
+            categoria: 'motivación'
+        },
+        {
+            cita:'El éxito no es la clave de la felicidad. La felicidad es la clave del éxito.',
+            categoria: 'motivación'
+        },
+        {
+            cita:'El éxito es la capacidad de ir de fracaso en fracaso sin perder el entusiasmo.',
+            categoria: 'motivación'
+        },
+        {
+            cita:'El éxito es no definitivo, el fracaso no es fatal. Lo que cuenta es el coraje para continuar.',
+            categoria: 'motivación'
+        },
+        {
+            cita:'El éxito es la realización progresiva de un ideal digno.',
+            categoria: 'motivación'
+        },
+        {
+            cita:'La vida es lo que hacemos de ella. Los viajes son los viajeros. Lo que vemos no es lo que vemos, sino lo que somos.',
+            categoria: 'vida'
+        },
+        {
+            cita:'La vida es realmente simple, pero insistimos en hacerla complicada.',
+            categoria: 'vida'
+        },
+        {
+            cita:'La vida es lo que sucede mientras estás ocupado haciendo otros planes.',
+            categoria: 'vida'
+        },
+        {
+            cita:'La vida es un sueño para los sabios, un juego para los tontos, una comedia para los ricos, una tragedia para los pobres.',
+            categoria: 'vida'
+        },
+        {
+            cita:'La vida es como andar en bicicleta. Para mantener el equilibrio, debes seguir adelante.',
+            categoria: 'vida'
+        },
+        
+    ]
+    
+)
+
+
+db.citas.find()
