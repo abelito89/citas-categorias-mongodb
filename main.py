@@ -23,7 +23,7 @@ df = pd.DataFrame(query).drop('_id', axis=1)
 lista_categorias = df['categoria'].unique()'''
 app = FastAPI()
 templates = Jinja2Templates('./Templates')
-
+categoria_seleccionada = '-'
 
 @app.get('/formulario_inicio', response_class=HTMLResponse)
 def leer_formulario(peticion:Request):
