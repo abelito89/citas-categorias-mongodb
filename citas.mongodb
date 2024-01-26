@@ -1,6 +1,6 @@
 use('citas')
 
-db.products.drop()
+db.citas.drop()
 db.citas.insertMany(
     [
         {

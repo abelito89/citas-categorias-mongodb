@@ -9,16 +9,19 @@
     <h2>Selecione una categoria de cita</h2>
     <form action="/enviar_categoria" method="post">
         <li>
-            <select name="categoria">
-                <option value="-">-</option>
-                <option value="amor">Amor</option>
-                <option value="amistad">Amistad</option>
-                <option value="motivacion">Motivación</option>
-                <option value="vida">Vida</option>
+            <select name="categoria_seleccionada">
+                <!--<option value="-">-</option>-->
+                {% for cat in lista_categorias %}
+                    
+                    <option value="{{cat}}" {% if categoria_seleccionada == cat %}selected{% endif %}>{{cat}}</option>
+                
+                {% endfor %}             
+                
             </select>
         </li>
         <input type="submit">
     </form>
     <p>{{cita_devuelta}}</p>
+    
 </body>
 </html>
