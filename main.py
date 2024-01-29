@@ -4,8 +4,10 @@ from fastapi.templating import Jinja2Templates
 import pymongo
 from pymongo import MongoClient
 import pandas as pd
+from starlette.middleware.sessions import SessionMiddleware
 
 app = FastAPI()
+app.add_middleware(SessionMiddleware,secret_key="Abelito89*")
 templates = Jinja2Templates(directory='./Templates')
 # Crea una conexión al servidor de MongoDB
 client = pymongo.MongoClient("mongodb://localhost:27017/")
@@ -16,26 +18,24 @@ db = client["citas"]
 # Selecciona la colección
 coleccion = db["citas"]
 
-# Busca todos los documentos en la colección
-'''query = coleccion.find()
-
-df = pd.DataFrame(query).drop('_id', axis=1)
-lista_categorias = df['categoria'].unique()'''
-app = FastAPI()
-templates = Jinja2Templates('./Templates')
-categoria_seleccionada = '-'
-
 @app.get('/formulario_inicio', response_class=HTMLResponse)
 def leer_formulario(peticion:Request):
-    global df, lista_categorias
+    #global df, lista_categorias, categoria_seleccionada
+    
     query = coleccion.find()
     df = pd.DataFrame(query).drop('_id', axis=1)
     lista_categorias = df['categoria'].unique()
-    return templates.TemplateResponse('index.html',{'request':peticion, 'lista_categorias':lista_categorias, 'categoria_seleccionada':'-'})
+    categoria_seleccionada = peticion.session.get('categoria_seleccionada','-')
+    peticion.session['categoria_seleccionada']=categoria_seleccionada
+    
+    return templates.TemplateResponse('index.html',{'request':peticion, 'lista_categorias':lista_categorias, 'categoria_seleccionada':categoria_seleccionada})
 
 @app.post('/enviar_categoria')
 def enviar_categoria(peticion:Request, categoria_seleccionada:str=Form(...)):
     try:
+        query = coleccion.find()
+        df = pd.DataFrame(query).drop('_id', axis=1)
+        lista_categorias = df['categoria'].unique()
         if categoria_seleccionada == '-':
             return templates.TemplateResponse('index.html',{'request':peticion, 'cita_devuelta':'Seleccione una categoría válida'})
         elif categoria_seleccionada not in df['categoria'].values:

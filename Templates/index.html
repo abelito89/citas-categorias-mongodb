@@ -9,7 +9,7 @@
     <h2>Selecione una categoria de cita</h2>
     <form action="/enviar_categoria" method="post">
         <li>
-            <select name="categoria_seleccionada">
+            <select name="categoria_seleccionada" default="-">
                 <!--<option value="-">-</option>-->
                 {% for cat in lista_categorias %}
                     
