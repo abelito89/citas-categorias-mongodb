@@ -37,7 +37,7 @@ def enviar_categoria(peticion:Request, categoria_seleccionada:str=Form(...)):
         df = pd.DataFrame(query).drop('_id', axis=1)
         lista_categorias = df['categoria'].unique()
         if categoria_seleccionada == '-':
-            return templates.TemplateResponse('index.html',{'request':peticion, 'cita_devuelta':'Seleccione una categoría válida'})
+            return templates.TemplateResponse('index.html',{'request':peticion, 'cita_devuelta':'Seleccione una categoría válida', 'lista_categorias':lista_categorias})
         elif categoria_seleccionada not in df['categoria'].values:
             return f'La categoria {categoria_seleccionada} no existe'
         
