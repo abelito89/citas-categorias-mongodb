@@ -47,3 +47,11 @@ def enviar_categoria(peticion:Request, categoria_seleccionada:str=Form(...)):
         return templates.TemplateResponse('index.html',{'request':peticion, 'cita_devuelta':cita_devuelta, 'categoria':categoria_seleccionada, 'lista_categorias':lista_categorias})
     except Exception as e:
         return f'Error procesando el archivo {e}'
+    
+@app.post('/nuevos_datos')
+def nueva_cita(peticion:Request, cita:str=Form(...), categoria:str=Form(...)):
+    try:
+        nuevo = coleccion.insert_one({'cita':cita, 'categoria':categoria})
+        return templates.TemplateResponse('index.html', {'request':peticion})
+    except Exception as e:
+        return {"erro":str(e)}

@@ -6,9 +6,9 @@
     <title>Generador de citas</title>
 </head>
 <body>
-    <h2>Selecione una categoria de cita</h2>
+    <h2>Selecione una categoria de cita</h2><br>
     <form action="/enviar_categoria" method="post">
-        <li>
+        
             <select name="categoria_seleccionada">
                 <option value="-" {% if categoria_seleccionada == '-' %}selected{% endif %}>-</option>
                 {% for cat in lista_categorias %}
@@ -18,16 +18,17 @@
                 {% endfor %}             
                 
             </select>
-        </li>
+        
         <input type="submit">
     </form>
-    <p>{{cita_devuelta}}</p>
-
-    <form>
+    <p>{{cita_devuelta}}</p><br><br><br><br><br>
+    <h2>Introduzca más datos a la base de datos</h2><br>
+    
+    <form action="/nuevos_datos" method="post">
         <label for="cita">Introduzca una nueva cita</label><br>
         <input type="text" name="cita" required><br><br>
         <label for="categoria">Introduzca la categoría a la que pertenece</label><br>
-        <input type="text" name="categoria" required><br>
+        <input type="text" name="categoria" required><br><br>
         <input type="submit" value="Agregar">
     </form>
     
