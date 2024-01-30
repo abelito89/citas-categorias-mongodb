@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request, Form
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, Response
 from fastapi.templating import Jinja2Templates
 import pymongo
 from pymongo import MongoClient
@@ -52,6 +52,7 @@ def enviar_categoria(peticion:Request, categoria_seleccionada:str=Form(...)):
 def nueva_cita(peticion:Request, cita:str=Form(...), categoria:str=Form(...)):
     try:
         nuevo = coleccion.insert_one({'cita':cita, 'categoria':categoria})
-        return templates.TemplateResponse('index.html', {'request':peticion})
+        peticion.session['categoria_seleccionada'] = '-'
+        return Response(status_code=303, headers={'Location': '/formulario_inicio'})
     except Exception as e:
-        return {"erro":str(e)}
+        return {"error":str(e)}
