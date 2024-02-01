@@ -5,6 +5,8 @@ import pymongo
 from pymongo import MongoClient
 import pandas as pd
 from starlette.middleware.sessions import SessionMiddleware
+from fastapi.staticfiles import StaticFiles #para usar css
+
 
 app = FastAPI()
 app.add_middleware(SessionMiddleware,secret_key="Abelito89*")
@@ -17,6 +19,9 @@ db = client["citas"]
 
 # Selecciona la colección
 coleccion = db["citas"]
+
+# Monta la carpeta 'Templates' en la ruta '/static'
+app.mount("/static", StaticFiles(directory="Templates/static"), name="static")
 
 @app.get('/formulario_inicio', response_class=HTMLResponse)
 def leer_formulario(peticion:Request):

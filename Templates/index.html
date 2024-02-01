@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generador de citas</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h2>Selecione una categoria de cita</h2><br>
+    <h2 id="Selecione_una_categoria_de_cita">Selecione una categoria de cita</h2><br>
     <form action="/enviar_categoria" method="post">
         
             <select name="categoria_seleccionada">
@@ -21,8 +22,8 @@
         
         <input type="submit">
     </form>
-    <p>{{cita_devuelta}}</p><br><br><br><br><br>
-    <h2>Introduzca más datos a la base de datos</h2><br>
+    <p>{{cita_devuelta}}</p>
+    <h2>Introduzca más datos a la base de datos</h2>
     
     <form action="/nuevos_datos" method="post">
         <label for="cita">Introduzca una nueva cita</label><br>
